@@ -18,6 +18,6 @@ PARTITION ON TABLE TSENSOR COLUMN SENSOR_ID
 AS insert into TSENSOR (sensor_id,clocktime,airTemp,windSpeed,surfaceTemp,latitude,longitude) values (?,?,?,?,?,?,?);
 
 
-CREATE INDEX P_IDX ON TSENSOR (AIR_TEMP);
+CREATE INDEX P_IDX ON TSENSOR (airTemp);
 
 
