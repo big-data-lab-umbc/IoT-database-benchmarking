@@ -1,0 +1,25 @@
+db.psensor_1_100.aggregate([ 
+    { "$group": { 
+        "_id": null,
+        "max": { "$max": "$receivedTime" }, 
+        "min": { "$min": "$receivedTime" } 
+    }}
+])
+
+
+db.psensor_1_100.aggregate([{ "$group": {"_id": null,"max": { "$max": "$receivedTime" },"min": { "$min": "$receivedTime" }}}])
+
+
+db.psensor.aggregate([     {"$group" : {_id:{ $substr : ["$receivedTime", 11, 2 ] }, count:{$sum:1}}} ],{ allowDiskUse: true } )
+
+
+db.psensor_1_1000.aggregate([{ "$group": { "_id": null,"max": { "$max": "$receivedTime" },"min": { "$min": "$receivedTime" }}}])
+
+10 sensors - 100 records/sec
+
+
+{ "_id" : "14", "count" : 997157 }
+{ "_id" : "10", "count" : 586400 }
+{ "_id" : "11", "count" : 1392000 }
+{ "_id" : "13", "count" : 1392357 }
+{ "_id" : "12", "count" : 1391686 }

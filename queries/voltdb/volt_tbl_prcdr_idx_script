@@ -1,0 +1,23 @@
+CREATE TABLE TSENSOR(
+sensor_id integer not null,
+clockTime timestamp,
+airTemp varchar(30),
+windSpeed varchar(30),
+surfaceTemp varchar(30),
+latitude varchar(30),
+longitude varchar(30),
+recieve_time timestamp default now()
+);
+
+
+PARTITION TABLE TSENSOR ON COLUMN SENSOR_ID;
+
+
+CREATE PROCEDURE tinsert 
+PARTITION ON TABLE TSENSOR COLUMN SENSOR_ID
+AS insert into TSENSOR (sensor_id,clocktime,airTemp,windSpeed,surfaceTemp,latitude,longitude) values (?,?,?,?,?,?,?);
+
+
+CREATE INDEX P_IDX ON TSENSOR (AIR_TEMP);
+
+

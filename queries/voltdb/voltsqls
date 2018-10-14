@@ -1,0 +1,60 @@
+select count(*) from rhsensor;
+select count(*) from tsensor;
+select count(*) from psensor;
+
+select * from psensor limit 100;
+
+select  extract(HOUR, recieve_time) from psensor
+group by extract(HOUR, recieve_time);
+
+select count(*) from rhsensor;
+select count(*) from tsensor;
+select count(*) from psensor;
+
+select * from psensor limit 100;
+
+select  extract(HOUR, recieve_time) from psensor
+group by extract(HOUR, recieve_time);
+
+select count(*) from rhsensor;
+select count(*) from tsensor;
+select count(*) from psensor;
+
+select * from psensor limit 100;
+
+select  extract(HOUR, recieve_time), count(recieve_time) as cnt from psensor 
+ group by extract(HOUR, recieve_time) order by 1;
+
+===========================================================================================================================================================
+
+select min(ALTITUDE) , max(ALTITUDE), avg(cast(ALTITUDE as float))  as ALTITUDE from psensor_1000_3; 
+select min(PRESSURE) , max(PRESSURE), avg(cast(PRESSURE as float))  as PRESSURE from psensor_1000_3; 
+select min(TEMPERATURE) , max(TEMPERATURE), avg(cast(TEMPERATURE as float))  as TEMPERATURE from psensor_1000_3; 
+select min(LATITUDE) , max(LATITUDE), avg(cast(LATITUDE as float))  as LATITUDE from psensor_1000_3; 
+select min(LONGITUDE) , max(LONGITUDE), avg(cast(LONGITUDE as float))  as LONGITUDE from psensor_1000_3; 
+===================================================================================================================================================================
+
+select min(airtemp) , max(airtemp), avg(cast(airtemp as float))  as airtemp from rhsensor_1000_3; 
+select min(WINDSPEED) , max(WINDSPEED), avg(cast(WINDSPEED as float))  as WINDSPEED from rhsensor_1000_3; 
+select min(RHUMIDITY) , max(RHUMIDITY), avg(cast(RHUMIDITY as float))  as RHUMIDITY from rhsensor_1000_3; 
+select min(WINDDIRECTION) , max(WINDDIRECTION), avg(cast(WINDDIRECTION as float))  as WINDDIRECTION from rhsensor_1000_3; 
+select min(LATITUDE) , max(LATITUDE), avg(cast(LATITUDE as float))  as WINDDIRECTION from rhsensor_1000_3; 
+select min(WINDDIRECTION) , max(WINDDIRECTION), avg(cast(WINDDIRECTION as float))  as WINDDIRECTION from rhsensor_1000_3; 
+===================================================================================================================================================================
+
+select min(airtemp) , max(airtemp), avg(cast(airtemp as float)) as airtemp from tsensor_1000_3;
+select min(WINDSPEED) , max(WINDSPEED), avg(cast(WINDSPEED as float)) as WINDSPEED from tsensor_1000_3;
+select min(SURFACETEMP) , max(SURFACETEMP), avg(cast(SURFACETEMP as float)) as SURFACETEMP from tsensor_1000_3;
+select min(LATITUDE) , max(LATITUDE), avg(cast(LATITUDE as float)) as LATITUDE from tsensor_1000_3;
+select min(LONGITUDE) , max(LONGITUDE), avg(cast(LONGITUDE as float)) as LONGITUDE from tsensor_1000_3;
+===================================================================================================================================================================
+
+select count(*) from psensor_1000_3;
+select count(*) from rhsensor_1000_3;
+select count(*) from tsensor_1000_3;
+
+
+select min(RECIEVE_TIME) , max(RECIEVE_TIME) as RH_RECIEVE_TIME from rhsensor_1000_3;
+
+select min(RECIEVE_TIME) , max(RECIEVE_TIME) as P_RECIEVE_TIME from psensor_1000_3;
+select min(RECIEVE_TIME) , max(RECIEVE_TIME) as T_RECIEVE_TIME from tsensor_1000_3;

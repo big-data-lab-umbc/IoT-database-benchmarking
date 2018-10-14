@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<deployment>
+    <cluster hostcount="6" sitesperhost="8" kfactor="1" schema="ddl"/>
+    <partition-detection enabled="true"/>
+    <heartbeat timeout="90"/>
+    <ssl enabled="false" external="false" dr="false" internal="false"/>
+    <httpd enabled="true">
+        <jsonapi enabled="true"/>
+    </httpd>
+    <snapshot frequency="1h" retain="2" prefix="AUTOSNAP" enabled="true"/>
+    <systemsettings>
+        <temptables maxsize="1000"/>
+        <snapshot priority="6"/>
+        <elastic duration="50" throughput="2"/>
+        <query timeout="10000"/>
+        <procedure loginfo="10000"/>
+        <resourcemonitor frequency="60">
+            <memorylimit size="80%" alert="70%"/>
+            <disklimit>
+                <feature name="snapshots" size="50"/>
+                <feature name="exportoverflow" size="50"/>
+                <feature name="commandlog" size="50"/>
+                <feature name="droverflow" size="20"/>
+            </disklimit>
+        </resourcemonitor>
+    </systemsettings>
+    <security enabled="false" provider="hash"/>
+    <import>
+        <configuration type="kafka" enabled="true" format="csv" version="10">
+            <property name="topics">TSENSOR_9_1,TSENSOR_9_2,TSENSOR_9_3,TSENSOR_9_4,TSENSOR_9_5,TSENSOR_9_6,TSENSOR_9_7,TSENSOR_9_8,TSENSOR_9_9,TSENSOR_9_10,TSENSOR_9_11,TSENSOR_9_12,TSENSOR_9_13,TSENSOR_9_14,TSENSOR_9_15,TSENSOR_9_16,TSENSOR_9_17,TSENSOR_9_18,TSENSOR_9_19,TSENSOR_9_20</property>
+            <property name="procedure">tinsert</property>
+            <property name="brokers">172.31.16.79:9092</property>
+        </configuration>
+    </import>
+</deployment>
