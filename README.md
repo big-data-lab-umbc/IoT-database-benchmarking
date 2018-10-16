@@ -13,13 +13,48 @@ Following are the steps to setup each tier, the steps shown here were used for o
 <br>
 <I><h2> 1. Setup Sensor Data Producer</I></h2><br>
 	            a. Download the code and deploy it on your desired server<br><br>
+		    b. Edit Section 1 and 3 of configuration in config.properties file: 
+		    
+    # ********** SECTION 1 **********
+    ########## CustomProducer configurations ##########
+    # Message type should be used to define the kafka message format
+    # use csv for CSV message format
+    # use json for JSON message format
+    MESSAGE_TYPE = csv
+    # BROKER_LIST can be used to define the number of kafka brokers to send messages, include server ip and port number
+    # for ex. 1.0.0.27:9092
+    BROKER_LIST = 1.0.0.27:9092
+    # Following properties define the topic for each sensor under which you want to produce messages for each sensor
+    SENSOR_TOPIC = MY_TOPIC
+    .
+    .
+    .
+    # ********** SECTION 3 **********
+    ########## Execution properties ##########
+    #PRODUCER_COUNT is the number of procedure we want to run for a sensor, general setup creates 1 producer for 1 sensor.
+    PRODUCER_COUNT = 10
+    # EXEC_TIME defines the number of hours for which you want to produce the messages, provide the value in secs,
+    # for 1 minute provide 60, which is 60 seconds
+    # for 1 hour provide 3600, which is 60 seconds * 60 minutes
+    # for 8 hours 28800 which is 60 seconds * 60 minutes * 8 hours
+    EXEC_TIME = 10
+    # RECS_PER_SEC defines number of messages per second you want to produce for each sensor
+    RECS_PER_SEC = 100
+
+    # SENSOR_TYPE defines for which sensor you want to produce messages,
+    # ALL for all 3 sensors
+    # RH for Relative Humidity Sensor
+    # P for Pressure Sensor
+    # T for Temperature Sensor
+    SENSOR_TYPE = T
+
 <I><h2> 2. Setup Messaging Server (Apache Kafka) </h2>
-use following link for detailed tutorial on how to configure Kafka Server</I></h2></B>	 https://kafka.apache.org/quickstart <br><br>
+Refer [Apache Kafka](https://kafka.apache.org/quickstart), for detailed tutorial on how to install and configure Apache Kafka Server</I></h2></B><br><br>
 <I><h2> 3. Setup Database Cluster with Message Consumer</B></I></h2><br>
 <BR>
 	    <h3>3.1. MongoDB Cluster Setup</h3>
 		a. Download and Install MongoDB 3.XX community version<br>
-			  https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/<br>
+			  [Installing MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)<br>
 		b. Set hostname on each server you want as part of MongoDB shard including Config server and Mongos Server<br>
 		c. Edit config file for Mongo node /etc/mongod.conf and update following entries:
 				
@@ -60,7 +95,8 @@ e. Edit configuration file for each mongos, remove storage section from the conf
 				
 <BR>
 <h3> 3.2. VoltDB Cluster Setup</h3><br>
-a. Download VoltDB community version<br>
+a. Download VoltDB community version <br>
+	
 b. Extract the VoltDB directory:
 	
 	tar -xzf voltdb-ent-latest.tar.gz
@@ -73,7 +109,7 @@ d. Execute :
 
     ./voltdb init --config=./deployment.xml
 
-Follow above steps for each VoltDB node that you want as part of your cluster.<br>
+Follow above steps for each VoltDB node that you want as part of your cluster. For additional help refer [VoltDB Documentation](https://www.voltdb.com/resources/get-started-voltdb/)<br>
 	<br>
   <br>
 <I> Note: You can use the deployment.xml file from our repository, make sure to change Kafka importer detail in it. Also you can change the number of host you need for your cluster.	</I>	
