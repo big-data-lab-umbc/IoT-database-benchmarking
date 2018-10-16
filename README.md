@@ -1,8 +1,10 @@
 <H1> How to use this framework</H1>
 
+<img width="969" alt="screen shot 2018-10-15 at 10 12 06 pm" src="https://user-images.githubusercontent.com/34160872/46988611-71bbc300-d0c7-11e8-9699-d9de30948c1a.png">
+
 This framework is divided into 3 tiers: 
 1. Sensor Data Producer
-1. Message Streaming Server
+1. Stream Messaging Server
 1. Streaming Message Consumer/ Database Clusters
 <br>
 <br>
