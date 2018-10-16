@@ -1,5 +1,4 @@
-## IoT-database-benchmarking 
-### How to use this framework  
+<H1> How to use this framework</H1>
 
 This framework is divided into 3 tiers: 
 1. Sensor Data Producer
@@ -10,12 +9,13 @@ This framework is divided into 3 tiers:
 Following are the steps to setup each tier, the steps shown here were used for our test environment, user can configure their environment as per their choice i.e. configure each tier on multiple machines or on a single machine
 <br>
 <br>
-<I><B> 1. Setup Sensor Data Producer</I><br></B>
-	            a. Download the code and deploy it on your desired server<br>
-<I><B> 2. Setup Messaging Server (Apache Kafka), use following link for detailed tutorial on how to configure Kafka Server</I></B>	 https://kafka.apache.org/quickstart <br>
-<I><B> 3. Setup Database Cluster with Message Consumer</B></I><br>
+<I><h2> 1. Setup Sensor Data Producer</I></h2><br>
+	            a. Download the code and deploy it on your desired server<br><br>
+<I><h2> 2. Setup Messaging Server (Apache Kafka) </h2>
+use following link for detailed tutorial on how to configure Kafka Server</I></h2></B>	 https://kafka.apache.org/quickstart <br><br>
+<I><h2> 3. Setup Database Cluster with Message Consumer</B></I></h2><br>
 <BR>
-	    <B> 3.1. MongoDB Cluster Setup</B>
+	    <h3>3.1. MongoDB Cluster Setup</h3>
 		a. Download and Install MongoDB 3.XX community version<br>
 			  https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/<br>
 		b. Set hostname on each server you want as part of MongoDB shard including Config server and Mongos Server<br>
@@ -57,7 +57,7 @@ e. Edit configuration file for each mongos, remove storage section from the conf
 
 				
 <BR>
-<B> 3.2. VoltDB Cluster Setup</B><br>
+<h3> 3.2. VoltDB Cluster Setup</h3><br>
 a. Download VoltDB community version<br>
 b. Extract the VoltDB directory:
 	
