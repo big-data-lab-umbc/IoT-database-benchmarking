@@ -1,17 +1,17 @@
 <H1> How to use this framework</H1>
 
-<img width="969" alt="screen shot 2018-10-15 at 10 12 06 pm" src="https://user-images.githubusercontent.com/34160872/46988611-71bbc300-d0c7-11e8-9699-d9de30948c1a.png">
+<img width="969" alt="image" src="https://user-images.githubusercontent.com/34160872/49715100-52e83180-fc1d-11e8-9a7a-60d3a210fa84.png">
 
 This framework is divided into 3 tiers: 
-1. Sensor Data Producer
-1. Stream Messaging Server
-1. Streaming Message Consumer/ Database Clusters
+1. IoT Data Generator
+1. Message Streaming Middleware
+1. Database Clusters
 <br>
 <br>
 Following are the steps to setup each tier, the steps shown here were used for our test environment, user can configure their environment as per their choice i.e. configure each tier on multiple machines or on a single machine
 <br>
 <br>
-<I><h2> 1. Setup Sensor Data Producer</I></h2><br>
+<I><h2> 1. Setup IoT Data Generator & Message Producer</I></h2><br>
 	            a. Download the code and deploy it on your desired server<br><br>
 		    b. Edit Section 1 and 3 of configuration in config.properties file: 
 		    
