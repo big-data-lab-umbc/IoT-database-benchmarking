@@ -116,4 +116,6 @@ Follow above steps for each VoltDB node that you want as part of your cluster. F
 
 # Publication
 If you make use of this code in your own work, please cite our paper:
+
+
 Arjun Pandya, Chaitanya Kulkarni, Kunal Mali, and Jianwu Wang. "An Open Source Cloud-Based NoSQL and NewSQL Database Benchmarking Platform for IoT Data." In International Symposium on Benchmarking, Measuring and Optimization, pp. 65-77. Springer, Cham, 2018.
